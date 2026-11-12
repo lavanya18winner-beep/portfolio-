@@ -1,0 +1,1104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Lavanya's developer portfolio featuring projects, skills and education.">
+
+    <title>Lavanya | Developer Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        /* GENERAL */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #0b1020;
+            color: #e8eaf2;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --bg: #0b1020;
+            --card: #141c31;
+            --accent: #a78bfa;
+            --accent2: #67e8f9;
+            --text: #e8eaf2;
+            --muted: #a0a9bd;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: auto;
+        }
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(30px, 4vw, 43px);
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            color: var(--muted);
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .highlight {
+            color: var(--accent);
+        }
+
+
+        /* HEADER */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 16, 32, 0.92);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .navbar {
+            width: min(1100px, 90%);
+            margin: auto;
+            min-height: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 27px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 26px;
+        }
+
+        nav a {
+            color: var(--muted);
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent2);
+        }
+
+
+        /* HERO */
+
+        #home {
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            padding: 75px 0;
+            background:
+                radial-gradient(circle at 80% 25%,
+                rgba(167,139,250,0.17), transparent 35%),
+                radial-gradient(circle at 10% 90%,
+                rgba(103,232,249,0.08), transparent 30%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .intro-label {
+            display: inline-block;
+            color: var(--accent2);
+            border: 1px solid rgba(103,232,249,0.3);
+            background: rgba(103,232,249,0.07);
+            padding: 8px 17px;
+            border-radius: 30px;
+            font-size: 13px;
+            margin-bottom: 24px;
+        }
+
+        .hero-text h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(40px, 6vw, 67px);
+            line-height: 1.15;
+            margin-bottom: 22px;
+        }
+
+        .hero-text p {
+            color: var(--muted);
+            max-width: 560px;
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 24px;
+            border-radius: 9px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            color: #0b1020;
+            background: var(--accent);
+        }
+
+        .btn-primary:hover {
+            background: #c4b5fd;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(167,139,250,0.2);
+        }
+
+        .btn-outline {
+            border: 1px solid #59627b;
+            color: var(--text);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent2);
+            color: var(--accent2);
+            transform: translateY(-4px);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-frame {
+            width: min(310px, 100%);
+            aspect-ratio: 1;
+            padding: 9px;
+            border-radius: 32px;
+            background: linear-gradient(135deg,
+                var(--accent), var(--accent2));
+            box-shadow: 0 0 65px rgba(167,139,250,0.2);
+            transform: rotate(3deg);
+            transition: 0.4s;
+        }
+
+        .image-frame:hover {
+            transform: rotate(0deg) scale(1.04);
+        }
+
+        .image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 25px;
+            display: block;
+        }
+
+        .hero-note {
+            margin-top: 25px;
+            color: var(--accent2);
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+
+        /* ABOUT */
+
+        #about {
+            background: #10172a;
+        }
+
+        .about-card {
+            max-width: 850px;
+            margin: auto;
+            background: var(--card);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .about-card:hover {
+            border-color: rgba(167,139,250,0.5);
+        }
+
+        .about-card p {
+            color: var(--muted);
+            font-size: 17px;
+        }
+
+
+        /* SKILLS */
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill {
+            background: var(--card);
+            border: 1px solid rgba(255,255,255,0.07);
+            padding: 27px 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 12px 30px rgba(167,139,250,0.1);
+        }
+
+        .skill h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 19px;
+            margin-bottom: 5px;
+        }
+
+        .skill p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .skill-icon {
+            font-size: 31px;
+            margin-bottom: 12px;
+        }
+
+
+        /* PROJECTS */
+
+        #projects {
+            background: #10172a;
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project {
+            background: linear-gradient(145deg, #18223b, #121a2d);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 30px;
+            border-radius: 18px;
+            transition: 0.35s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .project-number {
+            color: var(--accent2);
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 13px;
+        }
+
+        .project h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .project p {
+            color: var(--muted);
+            margin-bottom: 22px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .tag {
+            background: rgba(167,139,250,0.12);
+            color: #c4b5fd;
+            border-radius: 20px;
+            padding: 6px 13px;
+            font-size: 12px;
+        }
+
+        .project-link {
+            color: var(--accent2);
+            font-weight: 600;
+            margin-top: auto;
+            transition: 0.3s;
+        }
+
+        .project-link:hover {
+            color: white;
+            letter-spacing: 0.5px;
+        }
+
+
+        /* EDUCATION */
+
+        .education-container {
+            max-width: 750px;
+            margin: auto;
+            border-left: 2px solid var(--accent);
+            padding-left: 30px;
+        }
+
+        .education-item {
+            position: relative;
+            background: var(--card);
+            border: 1px solid rgba(255,255,255,0.07);
+            padding: 27px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            transition: 0.3s;
+        }
+
+        .education-item:hover {
+            transform: translateX(5px);
+            border-color: var(--accent);
+        }
+
+        .education-item::before {
+            content: "";
+            position: absolute;
+            left: -39px;
+            top: 30px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--accent2);
+            border: 3px solid var(--bg);
+        }
+
+        .education-item h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 5px;
+        }
+
+        .education-item p {
+            color: var(--muted);
+        }
+
+        .education-date {
+            color: var(--accent2) !important;
+            font-size: 14px;
+            margin-top: 7px;
+        }
+
+
+        /* CONTACT */
+
+        #contact {
+            background:
+                radial-gradient(circle at 50% 20%,
+                rgba(167,139,250,0.15), transparent 60%),
+                #10172a;
+        }
+
+        .contact-card {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+            padding: 55px 30px;
+            background: linear-gradient(145deg, #1b2642, #11192c);
+            border: 1px solid rgba(167,139,250,0.3);
+            border-radius: 24px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.25);
+            transition: 0.4s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-7px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 55px rgba(167,139,250,0.12);
+        }
+
+        .contact-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .contact-card p {
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            min-width: 145px;
+            border: 1px solid #59627b;
+            border-radius: 11px;
+            padding: 14px 22px;
+            background: rgba(255,255,255,0.04);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .contact-link:hover {
+            background: var(--accent);
+            color: #0b1020;
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .contact-note {
+            margin-top: 28px;
+            font-size: 13px;
+            color: var(--accent2);
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            padding: 28px 15px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 14px;
+            border-top: 1px solid rgba(255,255,255,0.07);
+        }
+
+
+        /* SCROLL ANIMATION */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* RESPONSIVE */
+
+        @media (max-width: 750px) {
+
+            .navbar {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+
+            nav ul {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px 20px;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                grid-row: 1;
+            }
+
+            .image-frame {
+                width: 220px;
+            }
+
+            .skills-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 65px 0;
+            }
+        }
+
+        @media (max-width: 450px) {
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 38px;
+            }
+
+            .about-card {
+                padding: 23px;
+            }
+
+            .contact-card {
+                padding: 35px 18px;
+            }
+
+            .contact-links {
+                flex-direction: column;
+            }
+
+            .contact-link {
+                width: 100%;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="navbar">
+
+            <a href="#home" class="logo">
+                Lavanya<span>.</span>
+            </a>
+
+            <nav aria-label="Main navigation">
+
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- HERO SECTION -->
+
+        <section id="home">
+
+            <div class="container hero-content">
+
+                <div class="hero-text">
+
+                    <span class="intro-label">
+                        ✨ Aspiring Developer | Always Learning
+                    </span>
+
+                    <h1>
+                        Hi, I'm
+                        <span class="highlight">Lavanya.</span>
+                        <br>
+                        I love building things with code.
+                    </h1>
+
+                    <p>
+                        I'm a computer science student exploring web development,
+                        programming and problem solving. I enjoy turning ideas
+                        into projects and learning something new with every build.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#projects" class="btn btn-primary">
+                            Explore My Work ↗
+                        </a>
+
+                        <a href="#contact" class="btn btn-outline">
+                            Get In Touch
+                        </a>
+
+                    </div>
+
+                    <p class="hero-note">
+                        ✦ LEARN. BUILD. EXPLORE. REPEAT.
+                    </p>
+
+                </div>
+
+
+                <div class="hero-image">
+
+                    <div class="image-frame">
+
+                        <img src="Profile.jpeg"
+                             alt="Portrait of Lavanya">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT SECTION -->
+
+        <section id="about">
+
+            <div class="container reveal">
+
+                <h2 class="section-heading">
+                    About <span class="highlight">Me</span>
+                </h2>
+
+                <p class="section-subtitle">
+                    A little introduction
+                </p>
+
+                <div class="about-card">
+
+                    <p>
+                        Hello! I'm Lavanya, a student at Scaler School of Technology
+                        pursuing Computer Science and Artificial Intelligence.
+                        I'm interested in web development and programming.
+
+                        <br><br>
+
+                        I'm currently developing my skills in HTML, CSS and Java.
+                        I believe in learning by building, experimenting with ideas
+                        and improving through practice. My goal is to become a
+                        confident developer who can create useful and meaningful
+                        digital experiences.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SKILLS SECTION -->
+
+        <section id="skills">
+
+            <div class="container reveal">
+
+                <h2 class="section-heading">
+                    My <span class="highlight">Skills</span>
+                </h2>
+
+                <p class="section-subtitle">
+                    Technologies and abilities I'm developing
+                </p>
+
+                <div class="skills-container">
+
+                    <div class="skill">
+                        <div class="skill-icon">🌐</div>
+                        <h3>HTML</h3>
+                        <p>Web page structure</p>
+                    </div>
+
+                    <div class="skill">
+                        <div class="skill-icon">🎨</div>
+                        <h3>CSS</h3>
+                        <p>Styling and responsive layouts</p>
+                    </div>
+
+                    <div class="skill">
+                        <div class="skill-icon">☕</div>
+                        <h3>Java</h3>
+                        <p>Programming fundamentals</p>
+                    </div>
+
+                    <div class="skill">
+                        <div class="skill-icon">🔧</div>
+                        <h3>Git</h3>
+                        <p>Version control fundamentals</p>
+                    </div>
+
+                    <div class="skill">
+                        <div class="skill-icon">🧩</div>
+                        <h3>Problem Solving</h3>
+                        <p>Logical thinking and practice</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROJECTS SECTION -->
+
+        <section id="projects">
+
+            <div class="container reveal">
+
+                <h2 class="section-heading">
+                    Featured <span class="highlight">Projects</span>
+                </h2>
+
+                <p class="section-subtitle">
+                    A selection of things I've been building
+                </p>
+
+                <div class="projects-container">
+
+
+                    <!-- PROJECT 1 -->
+
+                    <article class="project">
+
+                        <span class="project-number">
+                            PROJECT 01
+                        </span>
+
+                        <h3>Personal Portfolio</h3>
+
+                        <p>
+                            A personal website designed to introduce me,
+                            showcase my technical skills, highlight my projects
+                            and make it easy to connect with me.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">Responsive Design</span>
+                        </div>
+
+                        <a href="index.html" class="project-link">
+                            Explore my Portfolio ↗
+                        </a>
+
+                    </article>
+
+
+                    <!-- PROJECT 2 -->
+
+                    <article class="project">
+
+                        <span class="project-number">
+                            PROJECT 02
+                        </span>
+
+                        <h3>BYOS – Book Store</h3>
+
+                        <p>
+                            A simple bookstore webpage created to practise
+                            website structure, styling and presenting content
+                            through a clean web interface.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">Web Development</span>
+                        </div>
+
+                        <a href="byos.html"
+                           class="project-link">
+                            View BYOS Project ↗
+                        </a>
+
+                    </article>
+
+
+                    <!-- PROJECT 3 -->
+
+                    <article class="project">
+
+                        <span class="project-number">
+                            PROJECT 03
+                        </span>
+
+                        <h3>V-SERV</h3>
+
+                        <p>
+                            V-SERV is a service platform concept designed
+                            to connect customers with professionals for
+                            everyday needs, including home cleaning, repairs
+                            and maintenance.
+
+                            Its goal is to make finding reliable services
+                            simple and convenient.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">Web Development</span>
+                        </div>
+
+                        <a href="vserv.html"
+                           class="project-link">
+                            View V-SERV Project ↗
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- EDUCATION SECTION -->
+
+        <section id="education">
+
+            <div class="container reveal">
+
+                <h2 class="section-heading">
+                    My <span class="highlight">Education</span>
+                </h2>
+
+                <p class="section-subtitle">
+                    My academic journey
+                </p>
+
+                <div class="education-container">
+
+                    <article class="education-item">
+
+                        <h3>Computer Science – AI</h3>
+
+                        <p>
+                            Scaler School of Technology
+                        </p>
+
+                        <p class="education-date">
+                            2026 – 2030
+                        </p>
+
+                    </article>
+
+
+                    <article class="education-item">
+
+                        <h3>School Education</h3>
+
+                        <p>
+                            Sharda Global School
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT SECTION -->
+
+        <section id="contact">
+
+            <div class="container reveal">
+
+                <h2 class="section-heading">
+                    Let's <span class="highlight">Connect</span>
+                </h2>
+
+                <p class="section-subtitle">
+                    Every great opportunity starts with a conversation.
+                </p>
+
+                <div class="contact-card">
+
+                    <h3>
+                        Have an idea? Let's talk! ✨
+                    </h3>
+
+                    <p>
+                        Interested in my projects, have a collaboration idea,
+                        or simply want to connect? I'd love to hear from you!
+                    </p>
+
+                    <div class="contact-links">
+
+                        <a class="contact-link"
+                           href="mailto:lavanya.26bcs10143@sst.scaler.com">
+                            ✉ Email Me
+                        </a>
+
+                        <a class="contact-link"
+                           href="https://github.com/lavanya18winner-beep"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            ◈ GitHub
+                        </a>
+
+                        <a class="contact-link"
+                           href="https://www.linkedin.com/in/lavanya-tiwari-54234741b/"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            in LinkedIn
+                        </a>
+
+                    </div>
+
+                    <p class="contact-note">
+                        ✦ Always curious. Always learning. Always building.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Lavanya. Built with curiosity and code.
+        </p>
+
+    </footer>
+
+
+    <!-- SCROLL REVEAL ANIMATION -->
+
+    <script>
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+        if ("IntersectionObserver" in window) {
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+
+                    entries.forEach((entry) => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("visible");
+
+                            observer.unobserve(entry.target);
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+            revealElements.forEach((element) => {
+                observer.observe(element);
+            });
+
+        } else {
+
+            revealElements.forEach((element) => {
+                element.classList.add("visible");
+            });
+
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1218 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>It's Story Time | Enter Another World</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --accent: #ed5267;
+    --accent-light: #ff9a9e;
+    --glow: rgba(230, 45, 75, 0.2);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Inter", sans-serif;
+    color: #f5f1ea;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(circle at 50% 0%,
+        rgba(125,20,40,0.3), transparent 35%),
+        linear-gradient(135deg,#08090d,#120c12,#08090d);
+
+    padding: 40px 20px 60px;
+
+    transition: background 0.8s ease;
+}
+
+/* Genre themes */
+
+body[data-theme="History"] {
+    --accent: #d9a95c;
+    --accent-light: #f6d99b;
+    --glow: rgba(217,169,92,0.2);
+}
+
+body[data-theme="Mystery"] {
+    --accent: #758de9;
+    --accent-light: #b4c4ff;
+    --glow: rgba(90,115,240,0.2);
+}
+
+body[data-theme="Horror"] {
+    --accent: #ed5267;
+    --accent-light: #ff9a9e;
+    --glow: rgba(230,45,75,0.2);
+}
+
+/* Background lights */
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::before {
+    background: var(--glow);
+    top: -200px;
+    left: -200px;
+}
+
+body::after {
+    background: var(--glow);
+    bottom: -200px;
+    right: -200px;
+}
+
+/* ================= PARTICLES ================= */
+
+.particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 999;
+    color: var(--accent-light);
+    font-size: 13px;
+    animation: particleFade 0.8s ease forwards;
+}
+
+@keyframes particleFade {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-25px) scale(0.2);
+    }
+}
+
+/* ================= CONTAINER ================= */
+
+.container {
+    width: min(950px,100%);
+    margin: auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* ================= INTRO ================= */
+
+.hero {
+    text-align: center;
+    margin-bottom: 45px;
+    animation: heroAppear 1.2s ease;
+}
+
+@keyframes heroAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Moon */
+
+.moon-wrapper {
+    width: 220px;
+    height: 220px;
+    margin: 0 auto 25px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+.moon-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: -20px;
+    border-radius: 50%;
+    background: var(--glow);
+    filter: blur(25px);
+    animation: moonGlow 3s infinite ease-in-out;
+}
+
+.Story-time {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    position: relative;
+
+    border: 3px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+        0 0 30px var(--glow),
+        0 0 80px var(--glow);
+
+    animation: moonFloat 5s infinite ease-in-out;
+
+    transition: 0.5s;
+}
+
+.Story-time:hover {
+    transform: scale(1.06);
+}
+
+@keyframes moonFloat {
+    0%,100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -10px;
+    }
+}
+
+@keyframes moonGlow {
+    0%,100% {
+        opacity: 0.5;
+        transform: scale(0.95);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+/* Heading */
+
+h1 {
+    font-family: "Cinzel",serif;
+    font-size: clamp(2.2rem,6vw,4rem);
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+
+    background: linear-gradient(
+        90deg,
+        var(--accent),
+        #fff0d0,
+        var(--accent)
+    );
+
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: headingShine 5s linear infinite;
+}
+
+@keyframes headingShine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.mystery-line {
+    color: var(--accent-light);
+    font-family: "Cinzel",serif;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    color: #b9b0b5;
+    line-height: 1.8;
+}
+
+.subtitle span {
+    color: var(--accent-light);
+    font-weight: 600;
+}
+
+/* ================= INTRO DIVIDER ================= */
+
+.section-divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+    margin: 30px 0;
+    color: var(--accent-light);
+    font-family: "Cinzel",serif;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+}
+
+.section-divider::before,
+.section-divider::after {
+    content: "";
+    height: 1px;
+    width: 65px;
+    background: var(--accent);
+    opacity: 0.4;
+}
+
+/* ================= SURPRISE BUTTON ================= */
+
+.surprise-section {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.surprise-text {
+    color: #a9a0a6;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+}
+
+.surprise-btn {
+    border: 1px solid var(--accent);
+    border-radius: 50px;
+
+    padding: 15px 30px;
+
+    color: white;
+    background: linear-gradient(
+        135deg,
+        #8e1834,
+        #d83b59
+    );
+
+    font-family: "Inter",sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 25px var(--glow);
+
+    transition: 0.3s;
+}
+
+.surprise-btn:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 0 35px var(--glow);
+}
+
+.surprise-btn:active {
+    transform: scale(0.97);
+}
+
+/* ================= SELECTION CARDS ================= */
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 22px;
+    margin-bottom: 25px;
+}
+
+.step-card {
+    position: relative;
+    overflow: hidden;
+
+    padding: 25px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.08),
+        rgba(255,255,255,0.025)
+    );
+
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 18px;
+
+    backdrop-filter: blur(18px);
+
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+
+    transition: 0.35s;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 20px 50px var(--glow);
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    margin-bottom: 15px;
+
+    background: linear-gradient(
+        135deg,
+        #8d152c,
+        var(--accent)
+    );
+
+    color: white;
+    font-weight: 700;
+}
+
+label {
+    display: block;
+    color: #ddd5d8;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+}
+
+select {
+    width: 100%;
+    padding: 14px 16px;
+
+    background: rgba(10,10,15,0.9);
+    color: #f5f1ea;
+
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+
+    font-family: "Inter",sans-serif;
+    font-size: 0.95rem;
+
+    outline: none;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+select:hover,
+select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 15px var(--glow);
+}
+
+select:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+select option {
+    background: #151019;
+    color: white;
+}
+
+/* ================= STORY COUNTER ================= */
+
+.counter {
+    text-align: center;
+    margin: 25px 0;
+    color: #aaa0a7;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.counter span {
+    color: var(--accent-light);
+    font-weight: 700;
+}
+
+/* ================= STORY CARD ================= */
+
+#storyInfo {
+    margin-top: 25px;
+    scroll-margin-top: 25px;
+}
+
+.book-info {
+    position: relative;
+    overflow: hidden;
+
+    padding: 35px;
+
+    border-radius: 22px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(100,12,28,0.55),
+        rgba(20,15,22,0.95)
+    );
+
+    border: 1px solid var(--accent);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,0.4),
+        0 0 25px var(--glow);
+
+    animation: storyReveal 0.7s ease;
+}
+
+body[data-theme="History"] .book-info {
+    background: linear-gradient(
+        135deg,
+        rgba(105,75,30,0.4),
+        rgba(20,18,15,0.95)
+    );
+}
+
+body[data-theme="Mystery"] .book-info {
+    background: linear-gradient(
+        135deg,
+        rgba(35,45,100,0.45),
+        rgba(15,15,25,0.95)
+    );
+}
+
+@keyframes storyReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.book-info::before {
+    content: "✦";
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 2rem;
+    color: var(--accent-light);
+    opacity: 0.6;
+}
+
+.story-category {
+    position: relative;
+    color: var(--accent-light);
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.book-info h2 {
+    position: relative;
+    color: var(--accent-light);
+    font-family: "Cinzel",serif;
+    font-size: clamp(1.5rem,4vw,2.2rem);
+    margin-bottom: 18px;
+    padding-right: 40px;
+}
+
+.book-info p {
+    position: relative;
+    color: #d8d0d4;
+    line-height: 1.9;
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+.book-info a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 14px 23px;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        135deg,
+        #b41d38,
+        var(--accent)
+    );
+
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.book-info a::after {
+    content: "→";
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.book-info a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px var(--glow);
+}
+
+.book-info a:hover::after {
+    transform: translateX(5px);
+}
+
+/* ================= DAILY DISCOVERY ================= */
+
+.discovery {
+    margin-top: 40px;
+    padding: 25px;
+
+    text-align: center;
+
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+}
+
+.discovery h3 {
+    font-family: "Cinzel",serif;
+    color: var(--accent-light);
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+}
+
+.discovery p {
+    color: #aaa0a7;
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+    text-align: center;
+    margin-top: 45px;
+    color: #777078;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.footer span {
+    color: var(--accent);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:700px) {
+
+    body {
+        padding: 30px 15px 50px;
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .moon-wrapper {
+        width: 180px;
+        height: 180px;
+    }
+
+    .Story-time {
+        width: 165px;
+        height: 165px;
+    }
+
+    .book-info {
+        padding: 25px;
+    }
+
+    h1 {
+        letter-spacing: 3px;
+    }
+}
+
+@media(max-width:420px) {
+
+    .step-card {
+        padding: 20px;
+    }
+
+    .book-info {
+        padding: 22px;
+    }
+
+    .book-info a {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .surprise-btn {
+        width: 100%;
+    }
+}
+
+/* Accessibility */
+
+@media(prefers-reduced-motion:reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body data-theme="Horror">
+
+<div class="container">
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="moon-wrapper">
+
+            <img
+                src="https://mycharisma.com/wp-content/uploads/2025/03/Blood-moon.png"
+                alt="Blood moon"
+                class="Story-time"
+            >
+
+        </div>
+
+        <h1>WELCOME ALL!</h1>
+
+        <p class="mystery-line">
+            ✦ EVERY CHOICE UNLOCKS A NEW WORLD ✦
+        </p>
+
+        <p class="subtitle">
+            It's the perfect day for a story.
+            <br>
+            <span>Choose your path. Discover your tale.</span>
+        </p>
+
+    </section>
+
+
+    <div class="section-divider">
+        THE WORLD OF STORIES
+    </div>
+
+
+    <!-- SURPRISE ME -->
+
+    <section class="surprise-section">
+
+        <p class="surprise-text">
+            Can't decide what to read? Let fate choose for you.
+        </p>
+
+        <button
+            class="surprise-btn"
+            id="surpriseBtn"
+            type="button"
+        >
+            ✨ SURPRISE ME
+        </button>
+
+    </section>
+
+
+    <!-- SELECTION -->
+
+    <div class="steps">
+
+        <div class="step-card">
+
+            <div class="step-number">1</div>
+
+            <label for="Genre">
+                Select Story Type
+            </label>
+
+            <select id="Genre">
+
+                <option value="">-- Choose your type --</option>
+
+                <option value="Horror">🩸 Horror</option>
+
+                <option value="History">🏛️ History</option>
+
+                <option value="Mystery">🔎 Mystery</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="step-card">
+
+            <div class="step-number">2</div>
+
+            <label for="Genre-subtype">
+                Select Your Story
+            </label>
+
+            <select id="Genre-subtype" disabled>
+
+                <option value="">
+                    -- Choose a Type First --
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <!-- STORY COUNTER -->
+
+    <div class="counter" id="counter">
+        <span>15</span> STORIES WAITING TO BE DISCOVERED
+    </div>
+
+
+    <!-- STORY RESULT -->
+
+    <div id="storyInfo"></div>
+
+
+    <!-- DISCOVERY SECTION -->
+
+    <section class="discovery">
+
+        <h3>✦ A LITTLE REMINDER ✦</h3>
+
+        <p>
+            Every book holds a different universe.
+            Every page hides a new secret.
+            Your next adventure is just one choice away.
+        </p>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+        ✦ Every story begins with a choice
+        <span>•</span>
+        Happy Reading ✦
+    </div>
+
+</div>
+
+
+<script>
+
+/* ================= STORY DATA ================= */
+
+const storyOptions = {
+
+    Horror: [
+
+        {
+            value: "Dracula",
+            text: "Dracula",
+            description: "Dracula is Bram Stoker's famous Gothic horror novel about Count Dracula, an ancient vampire who travels from Transylvania to England. The story follows Jonathan Harker, Mina Murray, Van Helsing and others as they attempt to stop Dracula.",
+            url: "https://www.gutenberg.org/ebooks/345"
+        },
+
+        {
+            value: "The dreams in the witches House",
+            text: "The Dreams in the Witch House",
+            description: "The Dreams in the Witch House is a supernatural horror story by H. P. Lovecraft. It follows Walter Gilman, a student whose studies of mathematics and strange geometry lead him into terrifying supernatural experiences.",
+            url: "https://en.wikipedia.org/wiki/The_Dreams_in_the_Witch_House"
+        },
+
+        {
+            value: "The reaper of Washington city",
+            text: "The Reaper of Washington City",
+            description: "The Reaper of Washington City is presented as a dark and mysterious tale involving fear, death and unexplained events in Washington City.",
+            url: "https://www.google.com/search?q=%22The+Reaper+of+Washington+City%22"
+        },
+
+        {
+            value: "Frankenstein",
+            text: "Frankenstein",
+            description: "Mary Shelley's classic novel tells the story of Victor Frankenstein and the creature he creates through scientific experimentation.",
+            url: "https://www.gutenberg.org/ebooks/84"
+        },
+
+        {
+            value: "The Call of Cthulhu",
+            text: "The Call of Cthulhu",
+            description: "H. P. Lovecraft's famous cosmic horror story about ancient beings and forbidden knowledge.",
+            url: "https://www.hplovecraft.com/writings/texts/fiction/cc.aspx"
+        },
+
+        {
+            value: "The Turn of the Screw",
+            text: "The Turn of the Screw",
+            description: "Henry James's ghost story about a governess who encounters strange events in an isolated mansion.",
+            url: "https://www.gutenberg.org/ebooks/209"
+        }
+
+    ],
+
+
+    History: [
+
+        {
+            value: "Ten days that shook the world",
+            text: "Ten Days That Shook the World",
+            description: "Ten Days That Shook the World is John Reed's eyewitness account of the Russian Revolution of 1917.",
+            url: "https://www.gutenberg.org/ebooks/30796"
+        },
+
+        {
+            value: "Alexender the great",
+            text: "Alexander the Great",
+            description: "Alexander the Great was one of history's most successful military commanders. He created a vast empire stretching from Greece through Egypt and Persia.",
+            url: "https://en.wikipedia.org/wiki/Alexander_the_Great"
+        },
+
+        {
+            value: "The river war",
+            text: "The River War",
+            description: "The River War is Winston Churchill's account of the British campaign in Sudan during the late nineteenth century.",
+            url: "https://www.gutenberg.org/ebooks/4943"
+        },
+
+        {
+            value: "Julius Caesar",
+            text: "Julius Caesar",
+            description: "The life and achievements of one of Rome's greatest leaders.",
+            url: "https://en.wikipedia.org/wiki/Julius_Caesar"
+        },
+
+        {
+            value: "Napoleon Bonaparte",
+            text: "Napoleon Bonaparte",
+            description: "The story of the French military leader who shaped European history.",
+            url: "https://en.wikipedia.org/wiki/Napoleon"
+        },
+
+        {
+            value: "The French Revolution",
+            text: "The French Revolution",
+            description: "An overview of the events that transformed France and Europe.",
+            url: "https://en.wikipedia.org/wiki/French_Revolution"
+        },
+
+        {
+            value: "The Story of Mankind",
+            text: "The Story of Mankind",
+            description: "Hendrik Willem van Loon's famous history book covering human civilization.",
+            url: "https://www.gutenberg.org/ebooks/201"
+        }
+
+    ],
+
+
+    Mystery: [
+
+        {
+            value: "Whose body?",
+            text: "Whose Body?",
+            description: "Whose Body? is a detective mystery by Dorothy L. Sayers and introduces Lord Peter Wimsey.",
+            url: "https://en.wikipedia.org/wiki/Whose_Body%3F"
+        },
+
+        {
+            value: "The angel of terror",
+            text: "The Angel of Terror",
+            description: "The Angel of Terror is a mystery and suspense novel by Edgar Wallace involving inheritance, deception and danger.",
+            url: "https://en.wikipedia.org/wiki/The_Angel_of_Terror"
+        },
+
+        {
+            value: "The Hound of the Baskervilles",
+            text: "The Hound of the Baskervilles",
+            description: "One of Sherlock Holmes' most famous mysteries by Arthur Conan Doyle.",
+            url: "https://www.gutenberg.org/ebooks/2852"
+        },
+
+        {
+            value: "The Moonstone",
+            text: "The Moonstone",
+            description: "Wilkie Collins' classic detective novel involving a stolen diamond.",
+            url: "https://www.gutenberg.org/ebooks/155"
+        },
+
+        {
+            value: "The Secret Adversary",
+            text: "The Secret Adversary",
+            description: "Agatha Christie's thrilling mystery featuring Tommy and Tuppence.",
+            url: "https://www.gutenberg.org/ebooks/1155"
+        }
+
+    ]
+
+};
+
+
+/* ================= GET ELEMENTS ================= */
+
+const typeSelect = document.getElementById("Genre");
+
+const subtypeSelect = document.getElementById("Genre-subtype");
+
+const storyInfo = document.getElementById("storyInfo");
+
+const counter = document.getElementById("counter");
+
+const surpriseBtn = document.getElementById("surpriseBtn");
+
+
+/* ================= TOTAL STORIES ================= */
+
+const totalStories = Object.values(storyOptions)
+    .reduce((total, stories) => total + stories.length, 0);
+
+counter.innerHTML = `
+    <span>${totalStories}</span>
+    STORIES WAITING TO BE DISCOVERED
+`;
+
+
+/* ================= UPDATE COUNTER ================= */
+
+function updateCounter() {
+
+    const genre = typeSelect.value;
+
+    if (!genre) {
+
+        counter.innerHTML = `
+            <span>${totalStories}</span>
+            STORIES WAITING TO BE DISCOVERED
+        `;
+
+        return;
+    }
+
+    const count = storyOptions[genre].length;
+
+    counter.innerHTML = `
+        <span>${count}</span>
+        STORIES AVAILABLE IN ${genre.toUpperCase()}
+    `;
+
+}
+
+
+/* ================= GENRE CHANGE ================= */
+
+typeSelect.addEventListener("change", function() {
+
+    const selectedType = this.value;
+
+    storyInfo.innerHTML = "";
+
+    subtypeSelect.innerHTML =
+        '<option value="">-- Choose a Story --</option>';
+
+    subtypeSelect.disabled = !selectedType;
+
+    document.body.dataset.theme = selectedType || "Horror";
+
+    if (selectedType) {
+
+        storyOptions[selectedType].forEach(function(story) {
+
+            const option = document.createElement("option");
+
+            option.value = story.value;
+
+            option.textContent = story.text;
+
+            subtypeSelect.appendChild(option);
+
+        });
+
+    }
+
+    updateCounter();
+
+});
+
+
+/* ================= DISPLAY STORY ================= */
+
+function displayStory(genre, story) {
+
+    document.body.dataset.theme = genre;
+
+    typeSelect.value = genre;
+
+    subtypeSelect.innerHTML =
+        '<option value="">-- Choose a Story --</option>';
+
+    storyOptions[genre].forEach(function(item) {
+
+        const option = document.createElement("option");
+
+        option.value = item.value;
+
+        option.textContent = item.text;
+
+        subtypeSelect.appendChild(option);
+
+    });
+
+    subtypeSelect.disabled = false;
+
+    subtypeSelect.value = story.value;
+
+    updateCounter();
+
+    storyInfo.innerHTML = `
+
+        <div class="book-info">
+
+            <div class="story-category">
+                ✦ ${genre.toUpperCase()} COLLECTION ✦
+            </div>
+
+            <h2>${story.text}</h2>
+
+            <p>${story.description}</p>
+
+            <a
+                href="${story.url}"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Discover This Story
+            </a>
+
+        </div>
+
+    `;
+
+    storyInfo.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+    });
+
+}
+
+
+/* ================= STORY SELECTION ================= */
+
+subtypeSelect.addEventListener("change", function() {
+
+    const genre = typeSelect.value;
+
+    const selectedBook = this.value;
+
+    if (!selectedBook) {
+
+        storyInfo.innerHTML = "";
+
+        return;
+
+    }
+
+    const story = storyOptions[genre].find(function(book) {
+
+        return book.value === selectedBook;
+
+    });
+
+    if (story) {
+
+        displayStory(genre, story);
+
+    }
+
+});
+
+
+/* ================= SURPRISE ME ================= */
+
+surpriseBtn.addEventListener("click", function() {
+
+    const genres = Object.keys(storyOptions);
+
+    const randomGenre =
+        genres[Math.floor(Math.random() * genres.length)];
+
+    const stories = storyOptions[randomGenre];
+
+    const randomStory =
+        stories[Math.floor(Math.random() * stories.length)];
+
+    displayStory(randomGenre, randomStory);
+
+});
+
+
+/* ================= CURSOR PARTICLES ================= */
+
+let lastParticle = 0;
+
+document.addEventListener("mousemove", function(event) {
+
+    const now = Date.now();
+
+    if (now - lastParticle < 90) {
+        return;
+    }
+
+    lastParticle = now;
+
+    const particle = document.createElement("span");
+
+    particle.className = "particle";
+
+    particle.textContent = Math.random() > 0.5 ? "✦" : "·";
+
+    particle.style.left = event.clientX + "px";
+
+    particle.style.top = event.clientY + "px";
+
+    document.body.appendChild(particle);
+
+    setTimeout(function() {
+
+        particle.remove();
+
+    }, 850);
+
+});
+
+
+</script>
+
+</body>
+</html>
